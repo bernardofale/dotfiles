@@ -13,8 +13,8 @@ decorations = "buttonless"
 dynamic_padding = false
 
 [window.dimensions]
-lines = 40
-columns = 120
+lines = 60
+columns = 180
 
 [window.padding]
 x = 20
