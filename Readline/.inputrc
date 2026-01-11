@@ -1,2 +1,9 @@
 TAB: menu-complete
 set show-all-if-ambiguous on
+
+"\e[1;2D": backward-word
+"\e[1;2C": forward-word
+
+# Line navigation
+"\e[1;3D": beginning-of-line 
+"\e[1;3C": end-of-line
