@@ -15,3 +15,5 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home
 
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
+
+. "$HOME/.local/bin/env"

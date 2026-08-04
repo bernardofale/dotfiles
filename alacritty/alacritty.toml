@@ -8,17 +8,25 @@ TERM = "xterm-256color"
 [window]
 decorations = "buttonless"
 dynamic_padding = false
+# Minimal, aesthetic: soft translucency + macOS background blur.
+opacity = 0.96
+blur = true
 
 [window.dimensions]
 lines = 60
 columns = 180
 
 [window.padding]
-x = 20
-y = 10
+x = 22
+y = 16
 
 [font]
 size = 13.0
+
+# A little vertical breathing room between lines.
+[font.offset]
+x = 0
+y = 4
 
 [font.bold]
 family = "SF Mono"
@@ -36,9 +44,44 @@ style = "Semibold Italic"
 family = "SF Mono"
 style = "Semibold"
 
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Block"
+blinking = "Off"
+
 [general]
 live_config_reload = true
 import = [ "~/.config/alacritty/themes/themes/nordic.toml"
 ]
+
+# Match Neovim's Nordic background (#242933) exactly so the terminal padding
+# and the editor blend seamlessly. Overrides the imported nordic.toml value.
+[colors.primary]
+background = '#242933'
+foreground = '#D8DEE9'
+
+# ── magic dust ──────────────────────────────────────────────────────────────
+# A cursor that quietly glows in Nord frost-blue (green while in vi mode).
+[colors.cursor]
+text = '#242933'
+cursor = '#8FB4D8'
+
+[colors.vi_mode_cursor]
+text = '#242933'
+cursor = '#A3D6A9'
+
+# Muted polar-night selection instead of the theme's loud yellow.
+[colors.selection]
+text = 'CellForeground'
+background = '#3B4252'
+
+# Gentle frost-blue flash instead of an audible beep.
+[bell]
+animation = "EaseOutExpo"
+duration = 120
+color = '#8FB4D8'
+# ────────────────────────────────────────────────────────────────────────────
 
 [terminal]

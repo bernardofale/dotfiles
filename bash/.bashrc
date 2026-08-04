@@ -12,4 +12,6 @@ export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home
 export JAVA_HOME=/opt/homebrew/opt/openjdk@11
 export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
 export PATH="$JAVA_HOME/bin:$PATH"
-export CLAUDE_CODE_OAUTH_TOKEN="(security find-generic-password -s 'Claude Code-credentials' -w 2>/dev/null | jq '.claudeAiOauth.accessToken')"
+export PATH="/Users/bernardo/.local/bin:$PATH"
+
+. "$HOME/.local/bin/env"

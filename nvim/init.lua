@@ -221,13 +221,23 @@ require('lazy').setup({
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        globalstatus = true,
+      },
+      sections = {
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { { 'filename', path = 1 } },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
       },
     },
   },
@@ -238,7 +248,10 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    opts = {},
+    opts = {
+      indent = { char = '│' },
+      scope = { enabled = true, show_start = true, show_end = false },
+    },
   },
 
   -- "gc" to comment visual regions/lines
@@ -274,12 +287,22 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 {
+    -- Nordic: minimal, muted Nord palette with a soft blue-grey background
+    -- (#2e3440) — lighter than Vague/Catppuccin.
+    -- (vague.nvim and catppuccin are still installed, just not loaded.)
     'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-        require 'nordic' .load()
-    end
+      require('nordic').setup {
+        -- Softer, more minimal feel; flip these to taste.
+        bold_keywords = false,
+        italic_comments = true,
+        reduced_blue = true,
+        swap_backgrounds = false,
+      }
+      require('nordic').load()
+    end,
 },
   {
     "nvim-tree/nvim-tree.lua",
