@@ -15,3 +15,6 @@ export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="/Users/bernardo/.local/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+
+# SBG Azure service principals for atmos (credentials in Keychain)
+[ -f "$HOME/.config/bash/sbg-azure-sp.sh" ] && . "$HOME/.config/bash/sbg-azure-sp.sh"
